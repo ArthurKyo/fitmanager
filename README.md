@@ -1,23 +1,65 @@
-<p align="center">
-  <img src="web/public/icon.svg" width="72" alt="FitManager">
+<div align="center">
+
+<img src="docs/banner.png" alt="FitManager: a catraca sabe quem pagou" width="100%">
+
+# FitManager · Gestão de academias com catraca integrada
+
+**SaaS completo para academias de bairro e redes:** catraca Control iD, financeiro com Pix e cartão automáticos, CRM de retenção e um app que o aluno abre todo dia. Tudo em um painel só.
+
+<p>
+  <a href="#vídeos"><img src="https://img.shields.io/badge/▶_Ver_o_vídeo-D2F531?style=for-the-badge&logoColor=060606" alt="Ver o vídeo"></a>
+  <a href="#o-que-tem-dentro"><img src="https://img.shields.io/badge/Funcionalidades-060606?style=for-the-badge" alt="Funcionalidades"></a>
+  <a href="#rodando-em-2-minutos"><img src="https://img.shields.io/badge/Rodar_em_2_min-3A3A3A?style=for-the-badge" alt="Rodar em 2 minutos"></a>
+  <a href="docs/ARQUITETURA.md"><img src="https://img.shields.io/badge/Arquitetura-3A3A3A?style=for-the-badge" alt="Arquitetura"></a>
 </p>
 
-<h1 align="center">FitManager</h1>
-
-<p align="center">
-  <b>A catraca sabe quem pagou.</b><br>
-  Gestão de academias com catraca integrada, financeiro com Pix automático e um app que o aluno abre todo dia.
+<p>
+  <img src="https://img.shields.io/badge/Node.js_22-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js 22">
+  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express">
+  <img src="https://img.shields.io/badge/SQLite_nativo-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React 18">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square&logo=pwa&logoColor=white" alt="PWA">
+  <img src="https://img.shields.io/badge/Pix_+_Asaas-32BCAD?style=flat-square&logo=pix&logoColor=white" alt="Pix e Asaas">
+  <img src="https://img.shields.io/badge/Control_iD-D2F531?style=flat-square&logoColor=060606" alt="Control iD">
+  <img src="https://img.shields.io/badge/Remotion-0B84F3?style=flat-square&logo=remotion&logoColor=white" alt="Remotion">
+  <img src="https://img.shields.io/badge/19_testes_de_regras-passando-2EA043?style=flat-square" alt="19 testes passando">
 </p>
 
-<p align="center">
-  <a href="#demonstração">Demonstração</a> ·
-  <a href="#o-que-tem-dentro">O que tem dentro</a> ·
-  <a href="#rodando-em-2-minutos">Rodando</a> ·
-  <a href="#regras-de-negócio">Regras</a> ·
-  <a href="#catraca">Catraca</a> ·
-  <a href="#modelo-de-receita">Receita</a> ·
-  <a href="#vídeos">Vídeos</a>
-</p>
+</div>
+
+<div align="center"><img src="docs/demo.gif" alt="Demonstração: site, painel ao vivo, catraca, alunos, financeiro, CRM, relatórios e app do aluno" width="88%"></div>
+
+### Destaques
+
+| | |
+|---|---|
+| 🚪 **Catraca que cobra** | Control iD (digital, facial, cartão) no modo online. Quem atrasou vê o motivo no display e paga o Pix pelo app; a confirmação libera sozinha |
+| 📡 **Painel ao vivo** | Cada passagem aparece na hora por Server-Sent Events, com quem está treinando agora em relação à lotação |
+| 💸 **Financeiro de verdade** | Multa de 2% e juros de 1% ao mês na hora, débito automático no cartão com novas tentativas, estorno que reabre a fatura, webhook idempotente |
+| 📱 **App do aluno (PWA)** | Treino com séries por toque, guia de execução com fotos reais, cardio com GPS, passe QR que muda a cada 30 s |
+| 📸 **Story para o Instagram** | A foto do aluno com os números por cima, no estilo Strava, marcando a academia e o FitManager |
+| 🎯 **CRM e retenção** | Funil de leads com arrastar e soltar, quem sumiu há 10 dias, quem vence em 30, aniversariantes |
+| 🏢 **Multi-academia** | Cada academia é uma conta isolada; painel da plataforma com assinaturas, taxas por pagamento e risco de churn |
+| 🎬 **Vídeos de venda** | Institucional 16:9 e Reels 9:16 em Remotion, com o produto real na tela, não mockup |
+
+> A academia de demonstração **Contrapeso** vem pronta: 150 alunos, 14 meses de histórico e 4 mil passagens de catraca geradas pelo próprio motor de regras. Atalho: `/entrar?demo=dono`.
+
+---
+
+## Sumário
+
+1. [O problema](#o-problema)
+2. [Demonstração](#demonstração)
+3. [O que tem dentro](#o-que-tem-dentro)
+4. [Rodando em 2 minutos](#rodando-em-2-minutos)
+5. [Regras de negócio](#regras-de-negócio)
+6. [Catraca](#catraca)
+7. [Modelo de receita](#modelo-de-receita)
+8. [Vídeos](#vídeos)
+9. [Visual](#visual)
+10. [Limitações conhecidas](#limitações-conhecidas)
+11. [Arquitetura](docs/ARQUITETURA.md)
 
 ---
 
@@ -105,6 +147,8 @@ Testes das regras de negócio (19): `npm test --prefix api`.
 Produção: `npm run build --prefix web && npm start --prefix api`. A API serve o front compilado.
 
 ### Estrutura
+
+Detalhes, fluxos e decisões em [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 
 ```
 api/        Express + node:sqlite

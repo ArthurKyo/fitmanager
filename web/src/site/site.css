@@ -135,7 +135,7 @@
 .fz .rv-line.in::after { width: 96px; }
 
 /* ---------- Seções ---------- */
-.fz .band { padding: clamp(64px, 10vh, 128px) 0; }
+.fz .band { padding-block: clamp(64px, 10vh, 128px); }
 .fz .band-head { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; margin-bottom: clamp(32px, 5vh, 64px); }
 @media (max-width: 860px) { .fz .band-head { grid-template-columns: 1fr; } }
 .fz .band-head h2 { margin: 0; }
