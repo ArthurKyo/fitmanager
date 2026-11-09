@@ -1,0 +1,23 @@
+{
+  "api": "http://localhost:3333",
+  "listenPort": 4000,
+  "pollMs": 2000,
+  "apiTimeoutMs": 2500,
+  "offlinePolicy": "cache",
+  "offlineCacheHours": 48,
+  "devices": [
+    {
+      "vendor": "controlid",
+      "token": "COLE-AQUI-O-TOKEN-DA-CATRACA-1",
+      "host": "192.168.0.50",
+      "login": "admin",
+      "password": "admin",
+      "entryRotation": "clockwise",
+      "exitRotation": "anticlockwise"
+    },
+    {
+      "vendor": "simulador",
+      "token": "COLE-AQUI-O-TOKEN-DO-SIMULADOR"
+    }
+  ]
+}

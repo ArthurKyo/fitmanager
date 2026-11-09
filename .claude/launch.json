@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "fitmanager-api", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev", "--prefix", "api"], "port": 3333 },
+    { "name": "fitmanager-web", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev", "--prefix", "web"], "port": 5173 }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "fitmanager-motion",
+  "private": true,
+  "description": "Vídeo de vendas do FitManager, renderizado com Remotion",
+  "scripts": {
+    "studio": "remotion studio src/index.jsx",
+    "render": "remotion render src/index.jsx FitManager out/fitmanager.mp4 --browser-executable \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "still": "remotion still src/index.jsx FitManager out/frame.png --browser-executable \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "render:reels": "remotion render src/index.jsx Reels out/fitmanager-reels.mp4 --browser-executable \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "voz": "node scripts/voz.mjs",
+    "assets": "rm -rf public/video public/exercises && cp -R ../web/public/video public/video && cp -R ../web/public/exercises public/exercises"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.240",
+    "@remotion/google-fonts": "4.0.240",
+    "@remotion/media-utils": "4.0.240",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.240"
+  }
+}

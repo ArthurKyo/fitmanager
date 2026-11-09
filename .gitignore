@@ -1,0 +1,17 @@
+node_modules/
+*.db
+*.db-*
+.secret
+dist/
+.env
+.platform-key
+.cert/
+.DS_Store
+bridge/config.json
+bridge/offline-cache.json
+# cópias dos assets do web (recriadas com `npm run assets` em motion/)
+motion/public/video/
+motion/public/exercises/
+# quadros de teste do render; os mp4 finais ficam versionados
+motion/out/*.jpg
+motion/out/*.png

@@ -1,0 +1,12 @@
+{
+  "name": "fitmanager",
+  "private": true,
+  "version": "1.0.0",
+  "description": "FitManager — SaaS de gestão para academias: painel do dono, app do aluno e integração com catracas.",
+  "scripts": {
+    "setup": "npm install --prefix api && npm install --prefix web && npm run seed",
+    "seed": "npm run seed --prefix api",
+    "dev": "node scripts/dev.mjs",
+    "bridge": "npm start --prefix bridge"
+  }
+}

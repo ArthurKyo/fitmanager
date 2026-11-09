@@ -1,0 +1,12 @@
+{
+  "name": "fitmanager-bridge",
+  "private": true,
+  "type": "module",
+  "description": "Agente local que liga catracas (Control iD, leitor QR USB) à API do FitManager",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
