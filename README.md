@@ -27,9 +27,9 @@ Toda academia de bairro conhece a cena: o aluno atrasado passa pela catraca, a r
 
 O FitManager liga a catraca ao financeiro. Quem está em dia entra com a digital ou o rosto. Quem atrasou vê o motivo no display e paga o Pix pelo app. A confirmação chega sozinha e a catraca libera. O dono acompanha tudo de um painel só.
 
-https://github.com/ArthurKyo/fitmanager/raw/main/motion/out/fitmanager-reels.mp4
+https://github.com/user-attachments/assets/7bb19ffb-c380-43d0-a3ae-f5fd26dd592c
 
-<p align="center"><i>Reels de 30 s. O vídeo institucional de 1 min 41 s está em <code>motion/out/fitmanager.mp4</code>.</i></p>
+<p align="center"><i>Reels de 30 s, formato Instagram. O vídeo institucional de 1 min 41 s está na seção <a href="#vídeos">Vídeos</a>.</i></p>
 
 ## Demonstração
 
@@ -153,6 +153,12 @@ Preço por academia, não por aluno: Essencial R$ 189, Performance R$ 349, Rede 
 Variáveis: `FM_PLATFORM_WALLET_ID` (carteira que recebe o split), `FM_FEE_PCT`, `FM_FEE_MIN_CENTS`, `FM_PUBLIC_URL`, `FM_PLATFORM_KEY`, `FM_INSTAGRAM`.
 
 ## Vídeos
+
+Vídeo institucional (1 min 41 s, 16:9), narrado, feito para site e apresentação a donos de academia:
+
+https://github.com/user-attachments/assets/a068e3c0-b711-4b93-a2b7-31df3a651906
+
+Os arquivos em alta estão em `motion/out/` (longo 1080p e Reels 1080x1920); versões leves em `docs/`.
 
 `motion/` é um projeto Remotion. Tudo que aparece é o produto de verdade (display, painel, app), não mockup genérico.
 
