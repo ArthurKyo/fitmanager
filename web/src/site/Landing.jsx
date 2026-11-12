@@ -5,6 +5,7 @@ import { BrandMark } from '../ui/kit.jsx';
 import { Rv, Arrow, useGlow, reduced } from './motion.jsx';
 import BgVideo from './BgVideo.jsx';
 import GlassPlans from './GlassPlans.jsx';
+import SplitRules from './SplitRules.jsx';
 
 // Decisões reais do motor de regras, como aparecem no display da catraca.
 const PASSES = [
@@ -233,19 +234,6 @@ function PanelCrop() {
   );
 }
 
-function RuleScreen({ r }) {
-  return (
-    <Rv className="rule-screen">
-      <div className="rs-display">
-        <span className={`rs-status ${r.ok ? 'ok' : 'no'}`}>{r.ok ? 'Liberado' : 'Bloqueado'}</span>
-        <span className="rs-msg">{r.msg}</span>
-      </div>
-      <h4>{r.t}</h4>
-      <p>{r.d}</p>
-    </Rv>
-  );
-}
-
 function AppShow() {
   const [active, setActive] = useCycle(APP_POINTS.length, 4200);
   return (
@@ -430,11 +418,7 @@ export default function Landing() {
                 Você configura uma vez por plano. O sistema aplica em cada passagem, cada cobrança e cada cancelamento, e a primeira regra que falhar vira a mensagem no display. Estas são as mensagens que o aluno lê.
               </Rv>
             </div>
-            <div className="rule-grid">
-              {RULES.map((r) => (
-                <RuleScreen key={r.t} r={r} />
-              ))}
-            </div>
+            <SplitRules rules={RULES} />
           </div>
         </section>
 
