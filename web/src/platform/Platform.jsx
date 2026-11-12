@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrandMark, Loading } from '../ui/kit.jsx';
+import { api, DEMO } from '../api.js';
 import { money, moneyShort, pct, date, relDays } from '../ui/format.js';
 
 const KEY = 'fm.platform';
@@ -21,10 +22,8 @@ export default function Platform() {
 
   useEffect(() => {
     if (!key) return;
-    fetch('/api/platform/overview', { headers: { 'x-platform-key': key } })
-      .then(async (r) => {
-        const j = await r.json();
-        if (!r.ok) throw new Error(j.error);
+    api('/platform/overview', { headers: { 'x-platform-key': key } })
+      .then((j) => {
         setData(j);
         try {
           sessionStorage.setItem(KEY, key);
@@ -49,7 +48,7 @@ export default function Platform() {
           <label className="field">
             <span>Chave da plataforma</span>
             <input className="input" type="password" value={input} onChange={(e) => setInput(e.target.value)} autoFocus />
-            <small>Fica em api/.platform-key ou na variável FM_PLATFORM_KEY.</small>
+            <small>{DEMO ? 'Na demonstração online, a chave é demo.' : 'Fica em api/.platform-key ou na variável FM_PLATFORM_KEY.'}</small>
           </label>
           {err && <div className="alert red">{err}</div>}
           <button className="btn primary">Entrar</button>

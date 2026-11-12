@@ -7,7 +7,8 @@
 **SaaS completo para academias de bairro e redes:** catraca Control iD, financeiro com Pix e cartão automáticos, CRM de retenção e um app que o aluno abre todo dia. Tudo em um painel só.
 
 <p>
-  <a href="#vídeos"><img src="https://img.shields.io/badge/▶_Ver_o_vídeo-D2F531?style=for-the-badge&logoColor=060606" alt="Ver o vídeo"></a>
+  <a href="https://arthurkyo.github.io/fitmanager/"><img src="https://img.shields.io/badge/▶_Abrir_demonstração-D2F531?style=for-the-badge&logoColor=060606" alt="Abrir demonstração"></a>
+  <a href="#vídeos"><img src="https://img.shields.io/badge/Ver_o_vídeo-060606?style=for-the-badge" alt="Ver o vídeo"></a>
   <a href="#o-que-tem-dentro"><img src="https://img.shields.io/badge/Funcionalidades-060606?style=for-the-badge" alt="Funcionalidades"></a>
   <a href="#rodando-em-2-minutos"><img src="https://img.shields.io/badge/Rodar_em_2_min-3A3A3A?style=for-the-badge" alt="Rodar em 2 minutos"></a>
   <a href="docs/ARQUITETURA.md"><img src="https://img.shields.io/badge/Arquitetura-3A3A3A?style=for-the-badge" alt="Arquitetura"></a>
@@ -43,7 +44,7 @@
 | 🏢 **Multi-academia** | Cada academia é uma conta isolada; painel da plataforma com assinaturas, taxas por pagamento e risco de churn |
 | 🎬 **Vídeos de venda** | Institucional 16:9 e Reels 9:16 em Remotion, com o produto real na tela, não mockup |
 
-> A academia de demonstração **Contrapeso** vem pronta: 150 alunos, 14 meses de histórico e 4 mil passagens de catraca geradas pelo próprio motor de regras. Atalho: `/entrar?demo=dono`.
+> **Demonstração online:** [arthurkyo.github.io/fitmanager](https://arthurkyo.github.io/fitmanager/). Entre direto como [dono](https://arthurkyo.github.io/fitmanager/entrar?demo=dono), [recepção](https://arthurkyo.github.io/fitmanager/entrar?demo=recepcao) ou [aluno](https://arthurkyo.github.io/fitmanager/entrar?demo=aluno&next=/app). Não é uma maquete: a API inteira roda no seu navegador, com SQLite em WebAssembly, então catraca, cobranças, Pix simulado, CRM e app funcionam de verdade. A academia **Contrapeso** vem pronta com 150 alunos, 14 meses de histórico e 4 mil passagens de catraca, e volta ao estado original a cada dia.
 
 ---
 
@@ -86,7 +87,7 @@ https://github.com/user-attachments/assets/7bb19ffb-c380-43d0-a3ae-f5fd26dd592c
   <img src="docs/cardio.png" width="280" alt="App: cardio">
 </p>
 
-A academia de demonstração **Contrapeso** vem pronta: 150 alunos, 14 meses de contratos e faturas, 4 mil passagens de catraca geradas pelo próprio motor de regras, 42 leads no CRM. Logins com senha `fitmanager123`:
+Abra a [demonstração online](https://arthurkyo.github.io/fitmanager/) ou rode localmente. A academia de demonstração **Contrapeso** vem pronta: 150 alunos, 14 meses de contratos e faturas, 4 mil passagens de catraca geradas pelo próprio motor de regras, 42 leads no CRM. Logins com senha `fitmanager123`:
 
 | Perfil | E-mail | Vê |
 |---|---|---|

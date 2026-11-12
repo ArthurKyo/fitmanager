@@ -1,9 +1,9 @@
 {
   "name": "FitManager — App do aluno",
   "short_name": "FitManager",
-  "start_url": "/app",
+  "start_url": "app",
   "display": "standalone",
   "background_color": "#E6E9EC",
   "theme_color": "#1B222B",
-  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
 }

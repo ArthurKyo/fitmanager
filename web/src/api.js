@@ -27,18 +27,33 @@ export class ApiError extends Error {
   }
 }
 
-export async function api(path, { method = 'GET', body } = {}) {
-  const res = await fetch(`/api${path}`, {
-    method,
-    headers: { 'content-type': 'application/json', ...(token() ? { authorization: `Bearer ${token()}` } : {}) },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  const data = await res.json().catch(() => ({}));
-  if (res.status === 401 && token()) {
-    setSession(null);
-    window.location.href = '/entrar?expirou=1';
+/** Demonstração estática (GitHub Pages): a API roda no navegador. Ver src/demo/server.js. */
+export const DEMO = __FM_DEMO__;
+/** Prefixo do site ('' em produção normal, '/fitmanager' no GitHub Pages). */
+export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+/** Caminho absoluto de um arquivo de public/ respeitando o prefixo do site. */
+export const asset = (p) => (typeof p === 'string' && p.startsWith('/') ? BASE + p : p);
+const demoServer = () => import('./demo/server.js');
+
+export async function api(path, { method = 'GET', body, headers = {} } = {}) {
+  let status;
+  let data;
+  if (__FM_DEMO__) {
+    ({ status, data } = await (await demoServer()).demoRequest(method, path, { body, token: token(), headers }));
+  } else {
+    const res = await fetch(`/api${path}`, {
+      method,
+      headers: { 'content-type': 'application/json', ...(token() ? { authorization: `Bearer ${token()}` } : {}), ...headers },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    status = res.status;
+    data = await res.json().catch(() => ({}));
   }
-  if (!res.ok) throw new ApiError(res.status, data);
+  if (status === 401 && token() && !headers['x-platform-key']) {
+    setSession(null);
+    window.location.href = `${BASE}/entrar?expirou=1`;
+  }
+  if (status < 200 || status >= 300) throw new ApiError(status, data);
   return data;
 }
 
@@ -47,3 +62,29 @@ export const post = (p, body) => api(p, { method: 'POST', body: body || {} });
 export const put = (p, body) => api(p, { method: 'PUT', body });
 
 export const streamUrl = () => `/api/access/stream?token=${encodeURIComponent(token() || '')}`;
+
+/** Fita ao vivo da catraca. Devolve a função que encerra a assinatura. */
+export function openStream(onMessage, onState) {
+  if (__FM_DEMO__) {
+    let stop = () => {};
+    let closed = false;
+    demoServer()
+      .then((m) => m.openStream(token(), onMessage))
+      .then((off) => {
+        if (closed) off();
+        else (stop = off), onState(true);
+      });
+    return () => {
+      closed = true;
+      stop();
+    };
+  }
+  const es = new EventSource(streamUrl());
+  es.onopen = () => onState(true);
+  es.onerror = () => onState(false);
+  es.onmessage = (m) => onMessage(JSON.parse(m.data));
+  return () => es.close();
+}
+
+// Na demonstração, começa a montar o banco assim que o site abre, para o login ser imediato.
+if (__FM_DEMO__) demoServer();

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { post, setSession } from '../api.js';
+import { DEMO as ONLINE_DEMO, post, setSession } from '../api.js';
 import { BrandMark, useForm } from '../ui/kit.jsx';
 
 const DEMO = [
@@ -67,6 +67,11 @@ export function Login() {
         </form>
         <div className="stack">
           <p className="small muted">Academia de demonstração (senha fitmanager123):</p>
+          {ONLINE_DEMO && (
+            <p className="small muted">
+              Versão online: o sistema inteiro roda no seu navegador. O que você fizer fica salvo só aqui e a academia volta ao estado original a cada dia.
+            </p>
+          )}
           <div className="demo-logins">
             {DEMO.map(([r, e]) => (
               <button

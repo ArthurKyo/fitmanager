@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { get, getSession, post, put } from '../api.js';
+import { BASE, get, getSession, post, put } from '../api.js';
 import { useData, Loading, ErrorBox, Situation, Modal, useToast, QR, Icon } from '../ui/kit.jsx';
 import { cpf, phone, date, money, time, dateShort, METHOD, PAY, whatsapp, firstName, todayStr, relDays } from '../ui/format.js';
 
@@ -690,7 +690,7 @@ export default function MemberDetail() {
           <ul className="list-plain" style={{ margin: '0 -20px' }}>
             <li>
               <span>Endereço</span>
-              <b>{window.location.origin}/app</b>
+              <b>{window.location.origin}{BASE}/app</b>
             </li>
             <li>
               <span>Login</span>
@@ -701,7 +701,7 @@ export default function MemberDetail() {
               <b className="tnum">{modal.temporaryPassword}</b>
             </li>
           </ul>
-          <a className="btn primary" href={whatsapp(m.phone, `Seu acesso ao app da academia: ${window.location.origin}/app\nLogin: ${modal.email}\nSenha: ${modal.temporaryPassword}`)} target="_blank" rel="noreferrer">
+          <a className="btn primary" href={whatsapp(m.phone, `Seu acesso ao app da academia: ${window.location.origin}${BASE}/app\nLogin: ${modal.email}\nSenha: ${modal.temporaryPassword}`)} target="_blank" rel="noreferrer">
             Enviar pelo WhatsApp
           </a>
         </Modal>

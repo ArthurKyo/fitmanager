@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { reduced } from './motion.jsx';
+import { asset } from '../api.js';
 
 /**
  * Vídeo de fundo do site inteiro. Três clipes em capítulos: conforme a página desce,
@@ -7,7 +8,7 @@ import { reduced } from './motion.jsx';
  * Em telas de toque, onde o seek por scroll engasga, os clipes tocam em loop e só trocam com o scroll.
  * Arquivos em public/video (Pexels, uso livre). Para usar filmagens da academia, troque os mp4 mantendo os nomes.
  */
-const CLIPS = ['/video/barra.mp4', '/video/levantamento.mp4', '/video/anilhas.mp4'];
+const CLIPS = ['/video/barra.mp4', '/video/levantamento.mp4', '/video/anilhas.mp4'].map(asset);
 
 export default function BgVideo() {
   const vids = useRef([]);

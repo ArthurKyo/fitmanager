@@ -1,0 +1,50 @@
+# Publica a demonstração online no GitHub Pages a cada push na main.
+# O build com FM_DEMO=1 embute a API (api/src) no front: tudo roda no navegador do visitante.
+name: Demonstração no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Instalar dependências do front
+        run: npm ci --prefix web
+      - name: Gerar a demonstração
+        run: npm run build --prefix web
+        env:
+          FM_DEMO: '1'
+          FM_BASE: /fitmanager/
+      - name: Rotas do app funcionam ao abrir direto pelo link
+        run: cp web/dist/index.html web/dist/404.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

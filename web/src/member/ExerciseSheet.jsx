@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { get } from '../api.js';
+import { asset, get } from '../api.js';
 import { Icon, Loading } from '../ui/kit.jsx';
 
 const MUSCLE_LABEL = {
@@ -172,7 +172,7 @@ export function HumanDemo({ photos, name, fallback }) {
     <div className="demo">
       <div className="demo-stage">
         {photos.map((src, i) => (
-          <img key={src} src={src} alt={`${name}, posição ${i === 0 ? 'inicial' : 'final'}`} style={{ opacity: i === pos ? 1 : 0 }} onError={() => setBroken(true)} />
+          <img key={src} src={asset(src)} alt={`${name}, posição ${i === 0 ? 'inicial' : 'final'}`} style={{ opacity: i === pos ? 1 : 0 }} onError={() => setBroken(true)} />
         ))}
         <span className="demo-tag">{pos === 0 ? 'Posição inicial' : 'Posição final'}</span>
       </div>

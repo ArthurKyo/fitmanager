@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { getSession, setSession, streamUrl } from '../api.js';
+import { DEMO, getSession, openStream, setSession } from '../api.js';
 import { BrandMark, Icon } from '../ui/kit.jsx';
 
 const NAV = [
@@ -25,12 +25,8 @@ export function useLiveAccess(onEvent) {
   const cb = useRef(onEvent);
   cb.current = onEvent;
   useEffect(() => {
-    if (navigator.webdriver) return undefined; // capturas automatizadas: sem stream aberto
-    const es = new EventSource(streamUrl());
-    es.onopen = () => setOnline(true);
-    es.onerror = () => setOnline(false);
-    es.onmessage = (m) => cb.current?.(JSON.parse(m.data));
-    return () => es.close();
+    if (navigator.webdriver && !DEMO) return undefined; // capturas automatizadas: sem stream aberto
+    return openStream((ev) => cb.current?.(ev), setOnline);
   }, []);
   return online;
 }

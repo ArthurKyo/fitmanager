@@ -72,6 +72,21 @@ Agente Node que roda no PC da recepção. Recebe do equipamento Control iD o `ne
 
 Projeto Remotion com duas composições: `FitManager` (16:9, 1 min 41 s) e `Reels` (9:16, 30 s). `src/fx.jsx` tem câmera 3D, planos em profundidade, luz de persiana, grão e adesivos manuscritos. As vozes vêm do ElevenLabs; `scripts/voz.mjs` regenera e `scripts/historico.mjs` puxa do histórico da conta.
 
+## Demonstração online (GitHub Pages)
+
+O GitHub Pages só serve arquivos estáticos, então a demonstração leva a API junto. Com `FM_DEMO=1`, o Vite empacota os módulos de `api/src` dentro do front e troca o que é do Node por substitutos em `web/src/demo/shims`:
+
+| Módulo do Node | No navegador |
+|---|---|
+| `node:sqlite` | sql.js, o SQLite compilado para WebAssembly |
+| `express` | roteador compatível com `Router`, `use`, parâmetros e `next(err)` |
+| `node:crypto` | `@noble/hashes` e `@noble/ciphers` (scrypt, HMAC, SHA-256, AES-GCM) |
+| `node:fs`, `path`, `url`, `events` | versões mínimas em memória |
+
+`web/src/demo/server.js` monta as mesmas rotas de `api/src/server.js` e responde às chamadas que o front faria por `fetch`. Na primeira visita do dia ele roda o próprio `seed.js`, depois guarda o banco no IndexedDB do visitante. A fita ao vivo da catraca usa o mesmo `accessBus` que alimenta o SSE no servidor. O workflow `.github/workflows/pages.yml` gera e publica a cada push na `main`.
+
+Nada disso muda o modo normal: sem `FM_DEMO`, o front continua chamando a API em `/api`.
+
 ## Escala
 
 SQLite atende uma instância com folga para centenas de academias pequenas. Para várias instâncias, trocar `db.js` por Postgres: as queries são SQL padrão e o acesso passa todo por esse módulo.

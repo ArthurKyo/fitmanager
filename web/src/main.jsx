@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './styles.css';
 import { ToastProvider } from './ui/kit.jsx';
-import { getSession } from './api.js';
+import { BASE, getSession } from './api.js';
 import Landing from './site/Landing.jsx';
 import { Login, Signup } from './site/Auth.jsx';
 import AdminLayout from './admin/Layout.jsx';
@@ -38,7 +38,7 @@ function RequireMember({ children }) {
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ToastProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={BASE || undefined}>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/entrar" element={<Login />} />
