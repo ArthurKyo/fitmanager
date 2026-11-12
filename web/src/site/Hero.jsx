@@ -50,7 +50,9 @@ function useFitText(ref, sample) {
     const fit = () => {
       probe.style.fontSize = '100px';
       const w = probe.getBoundingClientRect().width;
-      if (w) setSize(Math.min(260, Math.floor((el.clientWidth / w) * 100)));
+      // No desktop a palavra ocupa pouco mais da metade do painel; no celular, quase toda a largura.
+      const share = el.clientWidth > 700 ? 0.56 : 0.86;
+      if (w) setSize(Math.min(150, Math.floor(((el.clientWidth * share) / w) * 100)));
     };
     fit();
     const ro = new ResizeObserver(fit);
