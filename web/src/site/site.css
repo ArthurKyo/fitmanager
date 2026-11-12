@@ -462,3 +462,32 @@
   .fz .hd-screen, .fz .hd-copy, .fz .hd-who span { animation: none; }
   .fz .hd-sensor.scan i::after { animation: none; }
 }
+
+/* ---------- Abertura (Intro.jsx): marca, frase para o dono e a tela sobe ---------- */
+html.fz-intro-lock, html.fz-intro-lock body { overflow: hidden; }
+.fz .intro { position: fixed; inset: 0; z-index: 200; background: #060606; display: grid; place-items: center; cursor: pointer; transition: transform 750ms cubic-bezier(.77,0,.18,1); }
+.fz .intro::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: var(--lime); transition: height 750ms cubic-bezier(.77,0,.18,1); }
+.fz .intro.out { transform: translateY(-100%); }
+.fz .intro.out::after { height: 10px; }
+.fz .intro-inner { width: min(1100px, calc(100% - 40px)); display: grid; justify-items: center; text-align: center; gap: clamp(28px, 5vh, 48px); transition: opacity 300ms ease, transform 600ms ease; }
+.fz .intro.out .intro-inner { opacity: 0; transform: translateY(-30px); }
+.fz .intro-brand { display: flex; align-items: center; gap: 16px; }
+.fz .intro-brand b { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(38px, 5vw, 64px); letter-spacing: 0.02em; animation: intro-word 700ms cubic-bezier(.16,1,.3,1) both 180ms; }
+.fz .intro-mark { position: relative; display: block; animation: intro-pop 550ms cubic-bezier(.34,1.56,.64,1) both; }
+.fz .intro-mark::after { content: ''; position: absolute; inset: -7px; border-radius: 24px; border: 2px solid var(--lime); opacity: 0; animation: intro-ring 1100ms ease-out 350ms; }
+.fz .intro-line { margin: 0; font-size: clamp(40px, 7.2vw, 112px); font-weight: 900; line-height: 0.9; letter-spacing: -0.005em; }
+.fz .intro-line .ln { display: block; overflow: hidden; padding-bottom: 0.04em; }
+.fz .intro-line .ln span { display: block; transform: translateY(110%); animation: ln-up 900ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(var(--i) * 140ms + 620ms); }
+.fz .intro-line .ln:last-child span { color: var(--lime); }
+.fz .intro-bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--lime); transform-origin: left; transform: scaleX(0); animation: intro-bar var(--hold) linear forwards; }
+.fz .intro-skip { position: absolute; right: clamp(16px, 3vw, 40px); bottom: clamp(18px, 3vh, 34px); border: 1px solid rgba(255,255,255,0.22); background: transparent; color: rgba(255,255,255,0.75); font: 600 14px/1 Archivo, sans-serif; padding: 10px 16px; border-radius: 999px; cursor: pointer; }
+.fz .intro-skip:hover { color: #000; background: var(--lime); border-color: var(--lime); }
+.fz .intro-skip:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+@keyframes intro-pop { from { opacity: 0; transform: scale(0.5) rotate(-12deg); } to { opacity: 1; transform: none; } }
+@keyframes intro-word { from { opacity: 0; transform: translateX(-14px); clip-path: inset(0 100% 0 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
+@keyframes intro-ring { 0% { opacity: 0.9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes intro-bar { to { transform: scaleX(1); } }
+/* O hero só entra quando a abertura começa a subir. */
+html.fz-intro-lock .fz .hd-screen, html.fz-intro-lock .fz .hd-copy { animation-play-state: paused; }
+@media (max-width: 600px) { .fz .intro-brand { gap: 12px; } }
+.fz .intro-brand .brand-mark { width: clamp(60px, 6vw, 84px); height: clamp(60px, 6vw, 84px); }

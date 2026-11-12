@@ -6,6 +6,7 @@ import { Rv, Arrow, reduced } from './motion.jsx';
 import BgVideo from './BgVideo.jsx';
 import GlassPlans from './GlassPlans.jsx';
 import Hero from './Hero.jsx';
+import Intro from './Intro.jsx';
 import SplitRules from './SplitRules.jsx';
 
 // Decisões reais do motor de regras, como aparecem no display da catraca.
@@ -280,6 +281,7 @@ function LiveDemo() {
 export default function Landing() {
   return (
     <div className="fz">
+      <Intro />
       <BgVideo />
       <header className="nav">
         <Link to="/" className="logo">
