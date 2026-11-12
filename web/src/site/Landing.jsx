@@ -57,14 +57,14 @@ function PhoneScreens({ active }) {
       <div className="notch" />
       <div className="scr">
         <div className={active === 0 ? 'on' : ''}>
-          <div style={{ fontSize: 12, color: '#56606b' }}>Academia Contrapeso</div>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>Academia Contrapeso</div>
           <b style={{ fontSize: 20, fontVariationSettings: "'wdth' 112", fontWeight: 800, display: 'block', marginBottom: 10 }}>Boa noite, Mariana</b>
           <div className="m-card" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 12, alignItems: 'center' }}>
             <span className="m-letter">C</span>
             <div>
-              <div style={{ fontSize: 11, color: '#56606b' }}>Treino de hoje</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Treino de hoje</div>
               <b style={{ fontSize: 14 }}>Pernas, Panturrilha</b>
-              <div style={{ fontSize: 11, color: '#56606b' }}>6 exercícios, 9/22 séries</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>6 exercícios, 9/22 séries</div>
             </div>
           </div>
           {[
@@ -74,7 +74,7 @@ function PhoneScreens({ active }) {
           ].map(([n, m, sets]) => (
             <div className="m-card" key={n}>
               <b style={{ fontSize: 13.5 }}>{n}</b>
-              <div style={{ fontSize: 11.5, color: '#56606b' }}>{m}</div>
+              <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.6)' }}>{m}</div>
               <div className="m-row">
                 {sets.map((s, i) => (
                   <span key={i} className={`m-set ${s ? 'on' : ''}`}>
@@ -86,7 +86,7 @@ function PhoneScreens({ active }) {
           ))}
         </div>
         <div className={active === 1 ? 'on' : ''}>
-          <div style={{ fontSize: 12, color: '#56606b' }}>Corrida, GPS</div>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>Corrida, GPS</div>
           <div className="m-big" style={{ marginTop: 12 }}>
             4,82 <span style={{ fontSize: 18, fontWeight: 700 }}>km</span>
           </div>
@@ -98,15 +98,15 @@ function PhoneScreens({ active }) {
             ].map(([v, l]) => (
               <div className="m-card" key={l} style={{ margin: 0, padding: 10 }}>
                 <b style={{ fontSize: 17, fontVariationSettings: "'wdth' 120", fontWeight: 800 }}>{v}</b>
-                <div style={{ fontSize: 10.5, color: '#56606b' }}>{l}</div>
+                <div style={{ fontSize: 10.5, color: 'rgba(255,255,255,0.6)' }}>{l}</div>
               </div>
             ))}
           </div>
-          <svg viewBox="0 0 260 180" style={{ width: '100%', marginTop: 14, background: '#fafbfc', borderRadius: 10 }}>
-            <path d="M20 150 C 40 90, 80 70, 110 100 S 170 40, 200 70 S 230 130, 240 40" fill="none" stroke="#1f4e9c" strokeWidth="4" strokeLinecap="round" strokeDasharray="520" strokeDashoffset={active === 1 ? 0 : 520} style={{ transition: 'stroke-dashoffset 2.4s ease 300ms' }} />
-            <circle cx="240" cy="40" r="6" fill="#1f4e9c" />
+          <svg viewBox="0 0 260 180" style={{ width: '100%', marginTop: 14, background: '#141414', borderRadius: 10, boxShadow: '0 0 0 1px #262626' }}>
+            <path d="M20 150 C 40 90, 80 70, 110 100 S 170 40, 200 70 S 230 130, 240 40" fill="none" stroke="#D2F531" strokeWidth="4" strokeLinecap="round" strokeDasharray="520" strokeDashoffset={active === 1 ? 0 : 520} style={{ transition: 'stroke-dashoffset 2.4s ease 300ms' }} />
+            <circle cx="240" cy="40" r="6" fill="#D2F531" />
           </svg>
-          <div style={{ background: '#1b222b', color: '#fff', borderRadius: 10, padding: 12, marginTop: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ background: '#D2F531', color: '#060606', borderRadius: 10, padding: 12, marginTop: 12, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontSize: 13 }}>Pausar</span>
             <b style={{ fontVariationSettings: "'wdth' 125", fontWeight: 900, fontSize: 18 }}>Concluir</b>
           </div>
@@ -123,10 +123,10 @@ function PhoneScreens({ active }) {
             </div>
             <div style={{ fontSize: 11.5, color: '#9aa6b1' }}>@academiacontrapeso · @fitmanager.app</div>
           </div>
-          <div style={{ background: '#1f4e9c', color: '#fff', borderRadius: 10, padding: 12, marginTop: 12, textAlign: 'center', fontWeight: 700, fontSize: 14 }}>Postar no Instagram</div>
+          <div style={{ background: '#D2F531', color: '#060606', borderRadius: 10, padding: 12, marginTop: 12, textAlign: 'center', fontWeight: 700, fontSize: 14 }}>Postar no Instagram</div>
         </div>
         <div className={active === 3 ? 'on' : ''}>
-          <div style={{ fontSize: 12, color: '#56606b' }}>Anual fidelidade, parcela 8 de 12</div>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)' }}>Anual fidelidade, parcela 8 de 12</div>
           <div className="m-big" style={{ marginTop: 10 }}>R$ 109,90</div>
           <div style={{ background: '#fff', borderRadius: 10, padding: 12, marginTop: 14, display: 'grid', placeItems: 'center' }}>
             <svg viewBox="0 0 21 21" width="150" height="150" shapeRendering="crispEdges">
@@ -138,7 +138,7 @@ function PhoneScreens({ active }) {
               })}
             </svg>
           </div>
-          <div style={{ background: '#dfefe5', color: '#2c7a4b', borderRadius: 8, padding: 10, marginTop: 12, fontSize: 13, fontWeight: 600, borderLeft: '3px solid #2c7a4b' }}>Pagamento confirmado. A catraca já libera sua entrada.</div>
+          <div style={{ background: 'rgba(87,208,138,0.12)', color: '#57d08a', borderRadius: 8, padding: 10, marginTop: 12, fontSize: 13, fontWeight: 600, borderLeft: '3px solid #57d08a' }}>Pagamento confirmado. A catraca já libera sua entrada.</div>
         </div>
       </div>
     </div>
