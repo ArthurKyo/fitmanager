@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './site.css';
 import { BrandMark } from '../ui/kit.jsx';
-import { Rv, Arrow, useGlow, reduced } from './motion.jsx';
+import { Rv, Arrow, reduced } from './motion.jsx';
 import BgVideo from './BgVideo.jsx';
 import GlassPlans from './GlassPlans.jsx';
+import Hero from './Hero.jsx';
 import SplitRules from './SplitRules.jsx';
 
 // Decisões reais do motor de regras, como aparecem no display da catraca.
@@ -26,36 +27,6 @@ function useCycle(n, ms) {
   }, [n, ms]);
   return [i, setI];
 }
-
-function Turnstile() {
-  const [i] = useCycle(PASSES.length, 2600);
-  const p = PASSES[i];
-  return (
-    <div className="turnstile" aria-label="Display da catraca mostrando a decisão de acesso">
-      <div className="ts-screen">
-        <div key={i} className="ts-swap">
-          <div className={`ts-status ${p.ok ? 'ok' : 'no'}`}>{p.ok ? 'Liberado' : 'Bloqueado'}</div>
-          <div className="ts-name">{p.name}</div>
-          <div className="ts-msg">{p.msg}</div>
-        </div>
-        <div className="ts-meta">
-          <span>Catraca 1, entrada</span>
-          <span>
-            {p.how}, {p.t}
-          </span>
-        </div>
-      </div>
-      <div className="ts-arms">
-        <div className="ts-led">
-          <i className={p.ok ? 'g' : ''} />
-          <i className={p.ok ? '' : 'r'} />
-        </div>
-        <div className="ts-sensor" />
-      </div>
-    </div>
-  );
-}
-
 
 /** Cada regra mostrada como a mensagem que o aluno vê no display da catraca. */
 const RULES = [
@@ -307,8 +278,6 @@ function LiveDemo() {
 }
 
 export default function Landing() {
-  const heroRef = useRef();
-  useGlow(heroRef);
   return (
     <div className="fz">
       <BgVideo />
@@ -330,37 +299,7 @@ export default function Landing() {
       </header>
 
       <main>
-        <section className="wrap hero" ref={heroRef}>
-          <div className="hero-glow" />
-          <div>
-            <h1 className="d d-xl">
-              <span className="ln" style={{ '--i': 0 }}>
-                <span>A catraca</span>
-              </span>
-              <span className="ln" style={{ '--i': 1 }}>
-                <span>sabe quem</span>
-              </span>
-              <span className="ln" style={{ '--i': 2 }}>
-                <span>pagou.</span>
-              </span>
-            </h1>
-            <p className="body">
-              Gestão de academia com a catraca ligada ao financeiro. Quem está em dia entra com a digital ou o rosto. Quem atrasou vê o motivo no display e paga o Pix pelo app. O dono acompanha tudo de um painel só.
-            </p>
-            <div className="ctas">
-              <Link to="/cadastro" className="b lime-b">
-                Testar 14 dias grátis <Arrow />
-              </Link>
-              <a href="#demo" className="b">
-                Ver funcionando <Arrow />
-              </a>
-            </div>
-          </div>
-          <div className="stage">
-            <div className="spot" />
-            <Turnstile />
-          </div>
-        </section>
+        <Hero />
 
         <FeedLine />
 

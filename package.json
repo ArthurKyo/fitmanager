@@ -8,5 +8,8 @@
     "seed": "npm run seed --prefix api",
     "dev": "node scripts/dev.mjs",
     "bridge": "npm start --prefix bridge"
+  },
+  "devDependencies": {
+    "shadcn": "^4.23.0"
   }
 }
