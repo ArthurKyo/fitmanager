@@ -378,8 +378,8 @@
 .fz .split-front { background-image: var(--img); background-size: var(--iw) var(--ih); background-position: calc(var(--ox) - var(--c) * var(--tw)) calc(var(--oy) - var(--r) * var(--th)); background-repeat: no-repeat; border-radius: var(--tl) var(--tr) var(--br) var(--bl); box-shadow: inset 0 1px 1px rgba(255,255,255, calc(var(--sh) * 0.22)), 0 24px 48px -16px rgba(0,0,0, calc(var(--sh) * 0.5)); }
 .fz .split-back { transform: rotateY(180deg); background: linear-gradient(160deg, #191919, #090909); color: #fff; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 4px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 24px 48px -18px rgba(0,0,0,0.55); overflow: hidden; }
 .fz .split-back .rs-display { min-height: 0; flex: 1; max-height: 128px; background: #000; }
-.fz .split-back h4 { margin: 12px 0 4px; font-family: var(--display); text-transform: uppercase; font-size: 21px; font-weight: 800; color: var(--lime); }
-.fz .split-back p { margin: 0; color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.45; }
+.fz .split-back h4 { margin: 12px 0 4px; padding-inline: 16px; font-family: var(--display); text-transform: uppercase; font-size: 21px; font-weight: 800; color: var(--lime); }
+.fz .split-back p { margin: 0; padding-inline: 16px; color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.45; }
 .fz .split-hint { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: #000; display: flex; gap: 8px; align-items: center; white-space: nowrap; }
 .fz .split-hint .bi { animation: fz-nudge 1.6s ease-in-out infinite; }
 @keyframes fz-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
@@ -391,7 +391,7 @@
   .fz .split-back .rs-display { padding: 10px; border-radius: 10px; gap: 4px; max-height: none; }
   .fz .split-back .rs-status { font-size: 17px; }
   .fz .split-back .rs-msg { font-size: 12px; }
-  .fz .split-back h4 { font-size: 15px; margin: 8px 0 0; }
+  .fz .split-back h4 { font-size: 15px; margin: 8px 0 0; padding-inline: 10px; }
   .fz .split-back p { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 .fz .split-track.still { height: auto; }
