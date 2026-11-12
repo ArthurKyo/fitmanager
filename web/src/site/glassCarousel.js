@@ -180,7 +180,9 @@ export function drawPlanCard(plan, w, h, dpr) {
   g.textBaseline = 'alphabetic';
   g.fillStyle = ink;
   g.font = `800 ${30 * k}px "Barlow Condensed", sans-serif`;
-  g.fillText(plan.name.toUpperCase(), pad, pad + 26 * k);
+  g.textAlign = 'center';
+  g.fillText(plan.name.toUpperCase(), w / 2, pad + 26 * k);
+  g.textAlign = 'left';
 
   let y = pad + 26 * k + 22 * k;
   if (plan.price) {
