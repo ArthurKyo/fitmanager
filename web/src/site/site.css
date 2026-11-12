@@ -349,3 +349,22 @@
 .fz .quote p { margin: 0; font-size: 17px; line-height: 1.5; }
 .fz .quote span { color: var(--fg-2); font-size: 14px; }
 .fz .point { grid-template-columns: 1fr; }
+
+/* ---------- Planos: carrossel com lente de vidro líquido (GlassPlans.jsx) ---------- */
+.fz .glass-plans { position: relative; height: clamp(560px, 78vh, 660px); margin-inline: calc(-1 * clamp(18px, 5vw, 72px)); outline: none; }
+.fz .glass-plans:focus-visible { box-shadow: inset 0 0 0 2px var(--lime); border-radius: 22px; }
+.fz .glass-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+.fz .glass-bar { position: absolute; left: 50%; bottom: 74px; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; }
+.fz .glass-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.18); background: rgba(14,14,14,0.6); color: var(--fg); display: grid; place-items: center; font-size: 18px; cursor: pointer; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background 200ms ease, color 200ms ease, border-color 200ms ease; }
+.fz .glass-arrow:hover { background: var(--lime); color: #000; border-color: var(--lime); }
+.fz .glass-dots { display: flex; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12); background: rgba(14,14,14,0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.fz .glass-dots button { border: 0; background: transparent; color: var(--fg-2); font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; font-size: 14px; padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: background 220ms ease, color 220ms ease; }
+.fz .glass-dots button.on { background: var(--lime); color: #000; }
+.fz .glass-cta { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); }
+.fz .glass-cta:active { transform: translateX(-50%) scale(0.97); }
+@media (max-width: 600px) {
+  .fz .glass-plans { height: 600px; }
+  .fz .glass-dots button { padding: 8px 10px; font-size: 13px; }
+  .fz .glass-arrow { width: 40px; height: 40px; }
+}
+.fz .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

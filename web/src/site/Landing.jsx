@@ -4,6 +4,7 @@ import './site.css';
 import { BrandMark } from '../ui/kit.jsx';
 import { Rv, Arrow, useGlow, reduced } from './motion.jsx';
 import BgVideo from './BgVideo.jsx';
+import GlassPlans from './GlassPlans.jsx';
 
 // Decisões reais do motor de regras, como aparecem no display da catraca.
 const PASSES = [
@@ -467,52 +468,7 @@ export default function Landing() {
               Sem taxa de implantação, cancele quando quiser. Nos pagamentos online, 0,9% por transação, já descontado antes de cair na sua conta.
             </Rv>
           </div>
-          <div className="prices">
-            <Rv className="price-card">
-              <h3 className="d d-md">Essencial</h3>
-              <div className="amt">
-                R$ 189<small>/mês</small>
-              </div>
-              <ul>
-                <li>Até 300 alunos ativos</li>
-                <li>Painel, financeiro e Pix com baixa automática</li>
-                <li>1 catraca</li>
-                <li>App do aluno com treino e passe QR</li>
-              </ul>
-              <Link to="/cadastro?plano=essencial" className="b">
-                Começar <Arrow />
-              </Link>
-            </Rv>
-            <Rv d={1} className="price-card hot">
-              <h3 className="d d-md">Performance</h3>
-              <div className="amt">
-                R$ 349<small>/mês</small>
-              </div>
-              <ul>
-                <li>Até 1.000 alunos ativos</li>
-                <li>Catracas ilimitadas, facial e digital</li>
-                <li>Cardio com GPS, dieta e story para o Instagram</li>
-                <li>CRM, retenção e débito automático</li>
-              </ul>
-              <Link to="/cadastro?plano=performance" className="b">
-                Começar <Arrow />
-              </Link>
-            </Rv>
-            <Rv d={2} className="price-card">
-              <h3 className="d d-md">Rede</h3>
-              <div className="amt" style={{ fontSize: 40 }}>
-                Sob consulta
-              </div>
-              <ul>
-                <li>Mais de 1.000 alunos ou várias unidades</li>
-                <li>Implantação acompanhada</li>
-                <li>App com a marca da academia nas lojas</li>
-              </ul>
-              <a href="mailto:comercial@fitmanager.com.br" className="b">
-                Falar com o comercial <Arrow />
-              </a>
-            </Rv>
-          </div>
+          <GlassPlans />
         </section>
 
         <section className="band wrap" id="demo" style={{ paddingTop: 0 }}>
